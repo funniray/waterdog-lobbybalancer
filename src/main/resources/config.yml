@@ -1,0 +1,33 @@
+#   LobbyBalancer - WaterdogPE plugin for balancing lobbies
+#   Copyright (C) 2021  Funniray
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   I am available for any questions/requests: funniray10@gmail.com
+
+#Any lobbies must start with this string. Anything after it doesn't matter
+#Transfers to this prefix will send a player to a lobby, acting the same as if they join
+lobbyprefix: lobby
+
+#If messages sent to lobbies should be broadcasted to players in another lobby
+#Not yet implemented
+#lobbybroadcast: false
+
+#Minimum players in a lobby before balancing to another server
+#A lobby must have x amount of players before another lobby starts getting players
+#Helps your server in theory not look dead if all lobbies barely have players
+#By default, lobby1 will fill up until it get to 10 players, then lobby2 will start filling up.
+#Once all lobby servers get to the minimum players, then the player will join the server with the least amount of players
+#This order is determined by the order of your servers in the WaterdogPE config
+minplayers: 10
+
+#Ping timeout in seconds for checking if a lobby is online
+pingtimeout: 1
