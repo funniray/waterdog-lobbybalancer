@@ -2,14 +2,11 @@
 ## Waterdog-LobbyBalancer  
 WaterdogPE plugin for balancing lobbies  
   
-Lobby servers are gathered from the WaterdogPE config with the lobby prefix.  
-By default, this is `lobby`.  
+Lobby servers are gathered from the WaterdogPE config with the lobby prefix. By default, this is `lobby`.  
   
-With the default configuration, lobby1, lobby2, and lobby3 would be detected as lobby servers,  
-but game1 or game2 would not.  
+With the default configuration, lobby1, lobby2, and lobby3 would be detected as lobby servers, but game1 or game2 would not.  
   
-You can transfer players to a pseudo-random lobby server by sending a transfer packet with the lobby prefix. By default,  
-`/server lobby` will send them to a pseudo-random lobby server
+You can transfer players to a pseudo-random lobby server by sending a transfer packet with the lobby prefix. By default, `/server lobby` will send them to a pseudo-random lobby server
   
 ### Downloads  
 Download from [GitHub Releases](https://github.com/funniray/waterdog-lobbybalancer/releases/latest)  
