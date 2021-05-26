@@ -25,6 +25,11 @@ import dev.waterdog.waterdogpe.utils.types.IReconnectHandler;
 public class LobbyReconnectHandler implements IReconnectHandler {
     @Override
     public ServerInfo getFallbackServer(ProxiedPlayer player, ServerInfo oldServer, String kickMessage) {
-        return Utils.findServer(oldServer);
+        ServerInfo info = Utils.findServer(oldServer);
+        if (info == null) {
+            player.disconnect("§cUnable to find a suitable lobby server to join");
+            return null;
+        }
+        return info;
     }
 }

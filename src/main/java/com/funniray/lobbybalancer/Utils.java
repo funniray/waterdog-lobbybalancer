@@ -51,13 +51,18 @@ public class Utils {
         }
 
         //Otherwise, return the server with the least amount of players
-        ServerInfo lobby = lobbies.stream()
+        List<ServerInfo> sortedLobbies = lobbies.stream()
                 .sorted(Comparator.comparingInt(a -> a.getPlayers().size()))
-                .collect(Collectors.toList()).get(0);
+                .collect(Collectors.toList());
+
+        if (sortedLobbies.size()==0) {
+            LobbyBalancer.getInstance().getLogger().critical("Failed to find a valid server to join");
+            return null;
+        }
 
         LobbyBalancer.getInstance().getLogger().debug(" >>> Decided server based off of the least amount of players");
 
-        return lobby;
+        return sortedLobbies.get(0);
     }
 
     public static void createLobby() {

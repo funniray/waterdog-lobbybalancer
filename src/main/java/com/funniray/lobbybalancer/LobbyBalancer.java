@@ -51,19 +51,15 @@ public final class LobbyBalancer extends Plugin {
     public void onEnable() {
         // Plugin startup logic
 
-        try {
-            createDefaultConfig();
+        createDefaultConfig();
 
-            LobbyBalancer.instance = this;
+        LobbyBalancer.instance = this;
 
-            Utils.createLobby();
+        Utils.createLobby();
 
-            this.getProxy().setJoinHandler(new LobbyJoinHandler());
-            this.getProxy().setReconnectHandler(new LobbyReconnectHandler());
-            this.getProxy().getEventManager().subscribe(PreTransferEvent.class, Listeners::PreTransferHandler);
-        } catch (Exception e) {
-            this.getLogger().critical("An error occured",e);
-        }
+        this.getProxy().setJoinHandler(new LobbyJoinHandler());
+        this.getProxy().setReconnectHandler(new LobbyReconnectHandler());
+        this.getProxy().getEventManager().subscribe(PreTransferEvent.class, Listeners::PreTransferHandler);
     }
 
     @Override

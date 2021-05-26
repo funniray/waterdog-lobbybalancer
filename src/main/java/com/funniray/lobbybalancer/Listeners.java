@@ -18,13 +18,20 @@
 package com.funniray.lobbybalancer;
 
 import dev.waterdog.waterdogpe.event.defaults.PreTransferEvent;
+import dev.waterdog.waterdogpe.network.ServerInfo;
 
 public class Listeners {
 
     public static void PreTransferHandler(PreTransferEvent e) {
         if (e.getTargetServer().getServerName().equals(LobbyBalancer.getInstance().getConfig().getString("lobbyprefix"))){
             //Don't let the player join the server they're currently on
-            e.setTargetServer(Utils.findServer(e.getPlayer().getServerInfo()));
+            ServerInfo info = Utils.findServer(e.getPlayer().getServerInfo());
+            if (info == null) {
+                e.getPlayer().sendMessage("§cUnable to find a suitable lobby server to join");
+                e.setCancelled();
+                return;
+            }
+            e.setTargetServer(info);
         }
     }
 }

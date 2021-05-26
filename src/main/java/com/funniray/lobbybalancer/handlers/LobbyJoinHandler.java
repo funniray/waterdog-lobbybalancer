@@ -26,6 +26,11 @@ public class LobbyJoinHandler implements IJoinHandler {
 
     @Override
     public ServerInfo determineServer(ProxiedPlayer player) {
-        return Utils.findServer(null);
+        ServerInfo info = Utils.findServer(null);
+        if (info == null) {
+            player.disconnect("§cUnable to find a suitable lobby server to join");
+            return null;
+        }
+        return info;
     }
 }
