@@ -17,18 +17,18 @@
 
 package com.funniray.lobbybalancer;
 
-import com.nukkitx.network.raknet.RakNetPong;
 import dev.waterdog.waterdogpe.ProxyServer;
 import dev.waterdog.waterdogpe.network.ServerInfo;
 
 import javax.annotation.Nullable;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class Utils {
+
+    private static HashMap<String, Boolean> onlineCache;
 
     public static ServerInfo findServer(@Nullable ServerInfo oldServer) {
         //We only want lobby servers that are online
@@ -39,7 +39,7 @@ public class Utils {
                 .stream()
                 .filter(Utils::isServerLobby)
                 .filter((serverInfo -> !serverInfo.equals(oldServer)))
-                .filter(Utils::isServerOnline)
+                .filter(CacheThread::isServerOnline)
                 .collect(Collectors.toList());
 
         //If a server has less than the minimum players, prioritize them
@@ -75,32 +75,14 @@ public class Utils {
         }
 
         //We have to put in a random address
-        ServerInfo baseInfo = findServer(null);
+        ServerInfo baseInfo = ProxyServer.getInstance().getServers()
+                .stream()
+                .filter(Utils::isServerLobby)
+                .collect(Collectors.toList())
+                .get(0);
 
         ServerInfo baseLobby = new ServerInfo(lobbyPrefix,baseInfo.getAddress(), null);
         ProxyServer.getInstance().registerServerInfo(baseLobby);
-    }
-
-    public static boolean isServerOnline(@Nullable ServerInfo server) {
-        //If the server is null, then it's not online
-        if (server == null) {
-            return false;
-        }
-
-        //If there's players on the server, then it's probably online
-        if (server.getPlayers().size() > 0) {
-            return true;
-        }
-
-        //Otherwise, attempt to ping the server
-        try {
-            RakNetPong pong = server.ping(LobbyBalancer.getInstance().getConfig().getInt("pingtimeout"), TimeUnit.SECONDS).get();
-            return true;
-        } catch (InterruptedException | ExecutionException e) {
-            //e.printStackTrace(); //This will spam the console
-            LobbyBalancer.getInstance().getLogger().critical("The server "+server.getServerName()+" appears to be offline. This will delay players connecting to the server. Feel free to make an issue telling me to add ping caching.");
-            return false; //If it errors, it's offline
-        }
     }
 
     //Get all lobby servers as long as their name isn't exactly the lobby prefix

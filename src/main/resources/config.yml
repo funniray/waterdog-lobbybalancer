@@ -30,4 +30,10 @@ lobbyprefix: lobby
 minplayers: 10
 
 #Ping timeout in seconds for checking if a lobby is online
-pingtimeout: 1
+pingtimeout: 5
+
+#Frequency servers are pinged in minutes
+pingfrequency: 1
+
+#If we should log to the console when a ping fails
+logfailedpings: true

@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.util.stream.Collectors;
 
 public final class LobbyBalancer extends Plugin {
 
@@ -56,6 +57,13 @@ public final class LobbyBalancer extends Plugin {
         LobbyBalancer.instance = this;
 
         Utils.createLobby();
+
+        this.getProxy().getScheduler().scheduleRepeating(()->
+                CacheThread.runPings(this.getProxy().getServers()
+                        .stream()
+                        .filter(Utils::isServerLobby)
+                        .collect(Collectors.toList()))
+                ,this.getConfig().getInt("pingfrequency")*20*60,true);
 
         this.getProxy().setJoinHandler(new LobbyJoinHandler());
         this.getProxy().setReconnectHandler(new LobbyReconnectHandler());
