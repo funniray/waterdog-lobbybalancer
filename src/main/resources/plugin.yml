@@ -15,5 +15,5 @@
 
 name: "Lobby-Balancer"
 author: "funniray"
-version: "1.0"
+version: ${version}
 main: "com.funniray.lobbybalancer.LobbyBalancer"
