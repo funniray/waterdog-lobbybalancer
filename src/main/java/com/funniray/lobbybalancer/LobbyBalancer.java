@@ -17,6 +17,7 @@
 
 package com.funniray.lobbybalancer;
 
+import com.funniray.lobbybalancer.commands.LobbyCommand;
 import com.funniray.lobbybalancer.handlers.LobbyJoinHandler;
 import com.funniray.lobbybalancer.handlers.LobbyReconnectHandler;
 import dev.waterdog.waterdogpe.event.defaults.PreTransferEvent;
@@ -74,6 +75,8 @@ public final class LobbyBalancer extends Plugin {
         this.getProxy().setJoinHandler(new LobbyJoinHandler());
         this.getProxy().setReconnectHandler(new LobbyReconnectHandler());
         this.getProxy().getEventManager().subscribe(PreTransferEvent.class, Listeners::PreTransferHandler);
+
+        this.getProxy().getCommandMap().registerCommand(new LobbyCommand());
     }
 
     @Override

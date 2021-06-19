@@ -16,6 +16,9 @@ Build and compile with maven using `mvn package`
   
 ### Config
 ```yaml
+#A message that displays on startup explaining this plugin is a free plugin
+showpiracywarning: true
+
 #Any lobbies must start with this string. Anything after it doesn't matter
 #Transfers to this prefix will send a player to a lobby, acting the same as if they join
 lobbyprefix: lobby
@@ -38,5 +41,7 @@ pingfrequency: 1
 logfailedpings: true
 ```  
   
-### Permissions/Commands  
-None
+### Commands/Permissions  
+| Command          | Permission          | Description                      |
+|------------------|---------------------|----------------------------------|
+| /\<lobbyprefix\> | lobbybalancer.lobby | Sends executer to a lobby server |
