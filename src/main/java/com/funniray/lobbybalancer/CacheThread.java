@@ -18,7 +18,7 @@
 package com.funniray.lobbybalancer;
 
 import com.nukkitx.network.raknet.RakNetPong;
-import dev.waterdog.waterdogpe.network.ServerInfo;
+import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 
 import java.util.Collection;
 import java.util.Map;

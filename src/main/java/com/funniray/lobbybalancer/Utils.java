@@ -18,7 +18,8 @@
 package com.funniray.lobbybalancer;
 
 import dev.waterdog.waterdogpe.ProxyServer;
-import dev.waterdog.waterdogpe.network.ServerInfo;
+import dev.waterdog.waterdogpe.network.serverinfo.BedrockServerInfo;
+import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 
 import javax.annotation.Nullable;
 import java.util.Comparator;
@@ -81,7 +82,7 @@ public class Utils {
                 .collect(Collectors.toList())
                 .get(0);
 
-        ServerInfo baseLobby = new ServerInfo(lobbyPrefix,baseInfo.getAddress(), null);
+        ServerInfo baseLobby = new BedrockServerInfo(lobbyPrefix,baseInfo.getAddress(), null);
         ProxyServer.getInstance().registerServerInfo(baseLobby);
     }
 

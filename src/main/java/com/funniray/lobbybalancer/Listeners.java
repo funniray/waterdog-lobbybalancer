@@ -18,7 +18,7 @@
 package com.funniray.lobbybalancer;
 
 import dev.waterdog.waterdogpe.event.defaults.PreTransferEvent;
-import dev.waterdog.waterdogpe.network.ServerInfo;
+import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 
 public class Listeners {
 
