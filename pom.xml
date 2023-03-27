@@ -13,7 +13,8 @@
 
     <description>Balances lobbies</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
+        <java.source>17</java.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -59,13 +60,21 @@
             <id>waterdog-repo</id>
             <url>https://repo.waterdog.dev/artifactory/main</url>
         </repository>
+        <repository>
+            <id>opencollab-releases</id>
+            <url>https://repo.opencollab.dev/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>opencollab-snapshots</id>
+            <url>https://repo.opencollab.dev/maven-snapshots/</url>
+        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
             <groupId>dev.waterdog.waterdogpe</groupId>
             <artifactId>waterdog</artifactId>
-            <version>1.1.2-SNAPSHOT</version>
+            <version>1.2.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

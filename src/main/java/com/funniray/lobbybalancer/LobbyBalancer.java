@@ -59,12 +59,6 @@ public final class LobbyBalancer extends Plugin {
 
         Utils.createLobby();
 
-        if (getConfig().getBoolean("showpiracywarning")) {
-            this.getLogger().critical("WaterdogPE plugin for balancing lobbies\n" +
-                    "A free plugin by Funniray. https://github.com/funniray/waterdog-pureperms If you paid for this plugin, you were scammed.\n" +
-                    "Report resellers to beingscammed@reallyisnt.fun");
-        }
-
         this.getProxy().getScheduler().scheduleRepeating(()->
                 CacheThread.runPings(this.getProxy().getServers()
                         .stream()

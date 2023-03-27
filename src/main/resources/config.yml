@@ -13,18 +13,6 @@
 #
 #   I am available for any questions/requests: funniray10@gmail.com
 
-###############################################################################################################
-###############################################################################################################
-####                                                                                                       ####
-####                               IF YOU PAID FOR THIS, YOU WERE SCAMMED                                  ####
-####                                     THIS IS A FREE PLUGIN                                             ####
-####                         https://github.com/funniray/waterdog-lobbybalancer                            ####
-####                           Report scammers to beingscammed@reallyisnt.fun                              ####
-####                                                                                                       ####
-###############################################################################################################
-###############################################################################################################
-showpiracywarning: true
-
 #Any lobbies must start with this string. Anything after it doesn't matter
 #Transfers to this prefix will send a player to a lobby, acting the same as if they join
 lobbyprefix: lobby

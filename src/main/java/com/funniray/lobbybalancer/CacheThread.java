@@ -54,7 +54,7 @@ public class CacheThread {
         } catch (InterruptedException | ExecutionException e) {
             //e.printStackTrace(); //This will spam the console
             if (LobbyBalancer.getInstance().getConfig().getBoolean("logfailedpings")) {
-                LobbyBalancer.getInstance().getLogger().warning("The server " + server.getServerName() + " appears to be offline.");
+                LobbyBalancer.getInstance().getLogger().warn("The server " + server.getServerName() + " appears to be offline.");
             }
             return false; //If it errors, it's offline
         }

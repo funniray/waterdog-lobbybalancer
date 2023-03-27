@@ -57,7 +57,7 @@ public class Utils {
                 .collect(Collectors.toList());
 
         if (sortedLobbies.size()==0) {
-            LobbyBalancer.getInstance().getLogger().critical("Failed to find a valid server to join");
+            LobbyBalancer.getInstance().getLogger().fatal("Failed to find a valid server to join");
             return null;
         }
 
@@ -71,7 +71,7 @@ public class Utils {
 
         //Ensure a server with the lobby prefix doesn't already exist
         if (ProxyServer.getInstance().getServerInfo(lobbyPrefix) != null) {
-            LobbyBalancer.getInstance().getLogger().critical("A server with the name "+lobbyPrefix+" already exists. Players won't be able to join this server, as any attempts to join this server will make them join a pseudo-random lobby server.");
+            LobbyBalancer.getInstance().getLogger().fatal("A server with the name "+lobbyPrefix+" already exists. Players won't be able to join this server, as any attempts to join this server will make them join a pseudo-random lobby server.");
             return;
         }
 
