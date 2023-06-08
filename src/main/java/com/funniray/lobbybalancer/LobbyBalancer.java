@@ -20,7 +20,7 @@ package com.funniray.lobbybalancer;
 import com.funniray.lobbybalancer.commands.LobbyCommand;
 import com.funniray.lobbybalancer.handlers.LobbyJoinHandler;
 import com.funniray.lobbybalancer.handlers.LobbyReconnectHandler;
-import dev.waterdog.waterdogpe.event.defaults.PreTransferEvent;
+import dev.waterdog.waterdogpe.event.defaults.ServerTransferRequestEvent;
 import dev.waterdog.waterdogpe.plugin.Plugin;
 
 import java.io.File;
@@ -68,7 +68,7 @@ public final class LobbyBalancer extends Plugin {
 
         this.getProxy().setJoinHandler(new LobbyJoinHandler());
         this.getProxy().setReconnectHandler(new LobbyReconnectHandler());
-        this.getProxy().getEventManager().subscribe(PreTransferEvent.class, Listeners::PreTransferHandler);
+        this.getProxy().getEventManager().subscribe(ServerTransferRequestEvent.class, Listeners::PreTransferHandler);
 
         this.getProxy().getCommandMap().registerCommand(new LobbyCommand());
     }

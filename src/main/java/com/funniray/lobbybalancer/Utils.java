@@ -20,8 +20,8 @@ package com.funniray.lobbybalancer;
 import dev.waterdog.waterdogpe.ProxyServer;
 import dev.waterdog.waterdogpe.network.serverinfo.BedrockServerInfo;
 import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
+import jline.internal.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;

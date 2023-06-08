@@ -17,12 +17,12 @@
 
 package com.funniray.lobbybalancer;
 
-import dev.waterdog.waterdogpe.event.defaults.PreTransferEvent;
+import dev.waterdog.waterdogpe.event.defaults.ServerTransferRequestEvent;
 import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 
 public class Listeners {
 
-    public static void PreTransferHandler(PreTransferEvent e) {
+    public static void PreTransferHandler(ServerTransferRequestEvent e) {
         if (e.getTargetServer().getServerName().equals(LobbyBalancer.getInstance().getConfig().getString("lobbyprefix"))){
             //Don't let the player join the server they're currently on
             ServerInfo info = Utils.findServer(e.getPlayer().getServerInfo());

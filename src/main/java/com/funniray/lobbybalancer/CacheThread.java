@@ -17,14 +17,11 @@
 
 package com.funniray.lobbybalancer;
 
-import com.nukkitx.network.raknet.RakNetPong;
 import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class CacheThread {
 
@@ -48,16 +45,19 @@ public class CacheThread {
         }
 
         //Otherwise, attempt to ping the server
-        try {
-            RakNetPong pong = server.ping(LobbyBalancer.getInstance().getConfig().getInt("pingtimeout"), TimeUnit.SECONDS).get();
-            return true;
-        } catch (InterruptedException | ExecutionException e) {
-            //e.printStackTrace(); //This will spam the console
-            if (LobbyBalancer.getInstance().getConfig().getBoolean("logfailedpings")) {
-                LobbyBalancer.getInstance().getLogger().warn("The server " + server.getServerName() + " appears to be offline.");
-            }
-            return false; //If it errors, it's offline
-        }
+        //Ping function was removed, don't really care to fix it
+
+//        try {
+//            RakNetPong pong = server.ping(LobbyBalancer.getInstance().getConfig().getInt("pingtimeout"), TimeUnit.SECONDS).get();
+//            return true;
+//        } catch (InterruptedException | ExecutionException e) {
+//            //e.printStackTrace(); //This will spam the console
+//            if (LobbyBalancer.getInstance().getConfig().getBoolean("logfailedpings")) {
+//                LobbyBalancer.getInstance().getLogger().warn("The server " + server.getServerName() + " appears to be offline.");
+//            }
+//            return false; //If it errors, it's offline
+//        }
+        return true;
     }
 
     public static boolean isServerOnline(ServerInfo server) {

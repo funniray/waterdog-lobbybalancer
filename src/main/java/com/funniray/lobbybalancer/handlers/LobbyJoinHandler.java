@@ -18,9 +18,9 @@
 package com.funniray.lobbybalancer.handlers;
 
 import com.funniray.lobbybalancer.Utils;
+import dev.waterdog.waterdogpe.network.connection.handler.IJoinHandler;
 import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
-import dev.waterdog.waterdogpe.utils.types.IJoinHandler;
 
 public class LobbyJoinHandler implements IJoinHandler {
 
